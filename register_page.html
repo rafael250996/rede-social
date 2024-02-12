@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page - Conversation Time</title>
+    <style>
+        body {
+            background-color: #FF4D4D; /* Tom de vermelho */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        form {
+            width: 100%;
+            max-width: 400px; /* Define a largura máxima do formulário */
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Considera padding e borda no tamanho total */
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Join Conversation Time</h1>
+
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Choose a username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Choose a password" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+
+        <button type="button" onclick="register()">Register</button>
+        <p>Already have an account? <a href="login_page.html">Login here</a></p>
+    </form>
+
+    <script>
+        function register() {
+            // Implementar a lógica de registro aqui
+            alert("Registration successful. Redirecting to login page.");
+            // Redirecionar para a página de login após o registro
+            window.location.href = "login_page.html";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page - Conversation Time</title>
+    <style>
+        body {
+            background-color: #FF4D4D; /* Tom de vermelho */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+        form {
+            margin-top: 20px;
+            display: grid;
+            gap: 10px;
+            max-width: 400px; /* Define a largura máxima do formulário */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        label {
+            font-size: 1em;
+            text-align: left;
+        }
+        input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 1em;
+            box-sizing: border-box; /* Considera padding e borda no tamanho total */
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Conversation Time</h1>
+        <button onclick="openMessagesPage()">Mensagens</button>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <h2>Meu Perfil</h2>
+
+    <form>
+        <label for="name">Nome do Perfil:</label>
+        <input type="text" id="name" value="Nome do Usuário" readonly>
+
+        <label for="age">Idade:</label>
+        <input type="text" id="age" value="25" readonly>
+
+        <label for="bio">Biografia:</label>
+        <textarea id="bio" rows="4" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+
+        <label for="relationshipStatus">Status de Relacionamento:</label>
+        <input type="text" id="relationshipStatus" value="Solteiro(a)" readonly>
+
+        <div class="button-container">
+            <button type="button" onclick="editProfile()">Editar Perfil</button>
+            <button type="button" onclick="saveChanges()">Salvar Alterações</button>
+        </div>
+    </form>
+
+    <script>
+        function openMessagesPage() {
+            // Implementar a lógica para abrir a página de mensagens
+            window.open('messages_page.html', '_blank');
+        }
+
+        function logout() {
+            // Implementar a lógica de logout aqui
+            alert("Logout successful. Redirecting to login page.");
+            // Redirecionar de volta para a página de login
+            window.location.href = "login_page.html";
+        }
+
+        function editProfile() {
+            document.getElementById('name').removeAttribute('readonly');
+            document.getElementById('age').removeAttribute('readonly');
+            document.getElementById('bio').removeAttribute('readonly');
+            document.getElementById('relationshipStatus').removeAttribute('readonly');
+        }
+
+        function saveChanges() {
+            // Implementar a lógica para salvar as alterações do perfil (pode ser no servidor)
+            alert("Alterações salvas com sucesso!");
+            // Atualizar para o modo de leitura
+            document.getElementById('name').setAttribute('readonly', true);
+            document.getElementById('age').setAttribute('readonly', true);
+            document.getElementById('bio').setAttribute('readonly', true);
+            document.getElementById('relationshipStatus').setAttribute('readonly', true);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages - Conversation Time</title>
+    <style>
+        body {
+            background-color: #FF4D4D; /* Tom de vermelho */
+            color: #FFFFFF;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #555;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #777;
+        }
+        .contacts-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 200px;
+            margin-right: 20px;
+            overflow-y: auto;
+        }
+        .contact {
+            padding: 10px;
+            margin: 5px;
+            background-color: #555;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact:hover {
+            background-color: #777;
+        }
+        .message-container {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .message {
+            background-color: #444;
+            color: #FFF;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            max-width: 70%;
+            align-self: flex-end;
+        }
+        .received-message {
+            background-color: #555;
+            align-self: flex-start;
+        }
+        .message-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button.send-button {
+            flex-shrink: 0;
+        }
+        .code-input-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Conversation Time</h1>
+        <button onclick="openProfilePage()">Meu Perfil</button>
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <div class="contacts-container" id="contactsContainer">
+        
+        <!-- Adicione mais contatos conforme necessário -->
+    </div>
+
+    <div class="message-container" id="messageContainer">
+        <!-- Exibição de mensagens -->
+        <!-- As mensagens para o contato selecionado serão exibidas aqui -->
+    </div>
+
+    <div class="message-input">
+        <input type="text" id="messageInput" placeholder="Digite sua mensagem...">
+        <button class="send-button" onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <div class="code-input-container">
+        <input type="text" id="codeInput" placeholder="Digite o código do perfil (6 dígitos)">
+        <button onclick="openConversationByCode()">Abrir Conversa</button>
+    </div>
+
+    <script>
+        function openProfilePage() {
+            // Implementar a lógica para abrir a página do perfil
+            window.open('profile_page.html', '_blank');
+        }
+
+        function logout() {
+            // Implementar a lógica de logout aqui
+            alert("Logout successful. Redirecting to login page.");
+            // Redirecionar de volta para a página de login
+            window.location.href = "login_page.html";
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const messageContainer = document.getElementById('messageContainer');
+
+            const message = document.createElement('div');
+            message.className = 'message';
+            message.textContent = messageInput.value;
+
+            const receivedMessage = document.createElement('div');
+            receivedMessage.className = 'received-message';
+            receivedMessage.textContent = generateResponse(messageInput.value);
+
+            messageContainer.appendChild(message);
+            messageContainer.appendChild(receivedMessage);
+            messageInput.value = '';
+
+            // Rolando para baixo para exibir a última mensagem
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+
+        function switchConversation(contactName) {
+            // Implementar a lógica para alternar entre as conversas
+            // Aqui você pode carregar mensagens do contato selecionado e exibi-las na messageContainer
+            alert("Switching conversation to " + contactName);
+            // Limpar as mensagens existentes na messageContainer
+            document.getElementById('messageContainer').innerHTML = "";
+            // Adicione código para carregar as mensagens do contato selecionado
+        }
+
+        function generateResponse(message) {
+            // Simula uma resposta automática
+            return "Você disse: '" + message + "'. Resposta automática: Obrigado por entrar em contato!";
+        }
+
+        function openConversationByCode() {
+            const codeInput = document.getElementById('codeInput').value;
+            // Implementar a lógica para abrir uma nova conversa com o perfil correspondente ao código
+            alert("Abrindo conversa com o perfil do código: " + codeInput);
+            // Limpar o campo de entrada de código
+            document.getElementById('codeInput').value = "";
+        }
+    </script>
+
+</body>
+</html>
