@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Conversation Time</title>
+    <style>
+        body {
+            background-color: #FF4D4D; /* Tom de vermelho */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            margin-top: 60px; /* Garante que as mensagens não fiquem atrás do cabeçalho */
+        }
+        li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Conversation Time</h1>
+        <button onclick="openMessagesPage()">Mensagens</button>
+        <button onclick="openProfilePage()">Meu Perfil</button>
+    </header>
+
+    <h2>Main Page</h2>
+    
+    <ul id="mensagens">
+        <!-- Aqui você pode exibir as mensagens da sua rede social -->
+        <li>Hello, welcome to Conversation Time!</li>
+    </ul>
+
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        function openMessagesPage() {
+            // Implementar a lógica para abrir a página de mensagens
+            window.open('messages_page.html', '_blank');
+        }
+
+        function openProfilePage() {
+            // Implementar a lógica para abrir a página do perfil
+            window.open('profile_page.html', '_blank');
+        }
+
+        function logout() {
+            // Implementar a lógica de logout aqui
+            alert("Logout successful. Redirecting to login page.");
+            // Redirecionar de volta para a página de login
+            window.location.href = "login_page.html";
+        }
+    </script>
+
+</body>
+</html>
